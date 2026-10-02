@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="obj.css">
+</head>
+<body id="div">
+    <div id="box">
+        <div class="header">
+            <h1>🛒 Shopping Cart</h1>
+            <p>Add an item to your cart</p>
+        </div>
+
+        <div class="field">
+            <label for="product">Product Name</label>
+            <input type="text" id="product" placeholder="e.g. Wireless Mouse">
+        </div>
+
+        <div class="field">
+            <label for="price">Price (₹)</label>
+            <input type="number" id="price" placeholder="e.g. 499">
+        </div>
+
+        <button onclick="SaveData()">Add to Cart</button>
+    </div>
+
+    <script>
+        function SaveData(){
+            let product=document.getElementById('product').value;
+            let price=document.getElementById('price').value;
+
+            localStorage.setItem("product",JSON.stringify(product));
+            setTimeout(function(){
+                console.log(localStorage.getItem("product"))
+            },5000);
+            localStorage.setItem("price",JSON.stringify(price));
+            setTimeout(function(){
+                console.log(localStorage.getItem("price"))
+            },5000);
+
+            setTimeout(function(){
+                alert(`the cart is added ${product} and ${price}RS`);
+            },2000)
+        }
+    </script>
+</body>
+</html>
